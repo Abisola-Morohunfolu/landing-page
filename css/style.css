@@ -664,10 +664,30 @@ UTILITIES
 		z-index: 500;
 		transform: translateX(100%);
 		transition: all 0.4s ease-out;
+		backdrop-filter: blur(10px);
+	}
+
+	.navigation__blur {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		backdrop-filter: blur(10px);
+		background-color: rgba(0, 0, 0, 0.4);
+		opacity: 0;
+		visibility: hidden;
+		z-index: 200;
+		transition: all 0.1s;
 	}
 
 	.navigation__checkbox:checked ~ .navigation__background {
 		transform: translateX(0);
+	}
+
+	.navigation__checkbox:checked ~ .navigation__blur {
+		opacity: 1;
+		visibility: visible;
 	}
 
 	.navigation__checkbox:checked ~ .navigation__button .navigation__icon {
@@ -712,6 +732,12 @@ UTILITIES
 	.nav__list {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.nav__link:link,
+	.nav__link:visited {
+		font-size: 1.8rem;
+		font-weight: 300;
 	}
 
 	.navigation__checkbox:checked ~ .navigation__nav {
