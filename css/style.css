@@ -599,8 +599,125 @@ UTILITIES
 		flex-direction: column;
 	}
 
+	/*
 	.navigation__nav {
 		display: none;
+	}
+	*/
+
+	.navigation__checkbox {
+		position: absolute;
+		left: 90%;
+		display: none;
+	}
+
+	.navigation__button {
+		height: 5rem;
+		width: 5rem;
+		border-radius: 3px;
+		position: fixed;
+		left: 85%;
+		z-index: 1000;
+		cursor: pointer;
+	}
+
+	.navigation__icon {
+		position: relative;
+		z-index: 2000;
+		margin-top: 2.25rem;
+		width: 2.5rem;
+		height: 2px;
+		background-color: #edededce;
+		text-align: center;
+		display: inline-block;
+		left: 7px;
+		transform-origin: right;
+	}
+
+	.navigation__icon:before,
+	.navigation__icon:after {
+		content: '';
+		width: 3rem;
+		height: 2px;
+		background-color: #edededce;
+		position: absolute;
+		left: 0;
+		transition: all 0.2s ease;
+	}
+
+	.navigation__icon:before {
+		top: -1rem;
+	}
+
+	.navigation__icon:after {
+		top: 1rem;
+	}
+
+	.navigation__background {
+		height: 100vh;
+		width: 100%;
+		background-color: var(--color-primary-dark);
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 20%;
+		z-index: 500;
+		transform: translateX(100%);
+		transition: all 0.4s ease-out;
+	}
+
+	.navigation__checkbox:checked ~ .navigation__background {
+		transform: translateX(0);
+	}
+
+	.navigation__checkbox:checked ~ .navigation__button .navigation__icon {
+		background-color: transparent;
+	}
+
+	.navigation__checkbox:checked ~ .navigation__button .navigation__icon:before {
+		top: 0;
+		transform: rotate(135deg);
+	}
+
+	.navigation__checkbox:checked ~ .navigation__button .navigation__icon:after {
+		top: 0;
+		transform: rotate(-135deg);
+	}
+
+	.navigation__nav {
+		display: block;
+		opacity: 0;
+		visibility: hidden;
+		position: fixed;
+		z-index: 1000;
+		top: 0rem;
+		right: 20%;
+		font-size: 2.25rem;
+		transform: translateY(-100%);
+		transition: all 0.8s ease;
+	}
+
+	.nav__main {
+		border: none;
+		align-content: flex-start;
+		flex: 0 0 15%;
+		margin-top: 10rem;
+	}
+
+	.nav__right {
+		margin-bottom: auto;
+		align-items: flex-start;
+	}
+
+	.nav__list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.navigation__checkbox:checked ~ .navigation__nav {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
 	}
 
 	.about__text {
@@ -663,36 +780,4 @@ UTILITIES
 		margin-right: 0;
 		margin-bottom: 1.5rem;
 	}
-
-	/*
-	.navigation__nav {
-		flex-direction: column;
-		justify-content: center;
-		align-content: center;
-		line-height: 1;
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		right: 0;
-		left: 0;
-		z-index: 1000;
-		background-color: var(--color-primary);
-	}
-
-	.nav__main {
-		border: none;
-		align-content: flex-start;
-		flex: 0 0 15%;
-		margin-top: 10rem;
-	}
-
-	.nav__right {
-		margin-bottom: auto;
-		align-items: flex-start;
-	}
-
-	.nav__list {
-		display: flex;
-		flex-direction: column;
-	} */
 }
